@@ -7,3 +7,67 @@ html {
     font-family: monospace;
     font-size: 10px;
 }
+
+@media (max-width: 768px) {
+    .seccion1 {
+        padding: 15px;
+    }
+
+    .titu1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .formulario-compra {
+        padding: 0 15px;
+    }
+
+    .campo-producto,
+    .campo-precio,
+    .boton-agregar {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .item-compra {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion1 {
+        padding: 10px;
+    }
+
+    .titu1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .formulario-compra {
+        gap: 8px;
+        padding-left: 5px;  
+        padding-right: 10px;
+        margin-left: 0;
+    }
+
+    .campo-producto,
+    .campo-precio,
+    .boton-agregar {
+        font-size: 14px;
+        padding: 8px;
+        width: 95%; 
+    }
+
+    .item-compra {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px 0;
+    }
+
+    .producto-eliminar {
+        align-self: flex-end; 
+    }
+}

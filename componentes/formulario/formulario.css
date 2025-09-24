@@ -46,9 +46,6 @@
     cursor: pointer;
 }
 
-.boton-agregar:hover {
-    background: red;
-}
 
 .lista-productos {
   margin-top: 8rem;
@@ -58,10 +55,37 @@
 }
 
 .item-compra {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 8px 10px;
-    border-bottom: 1px solid gainsboro;
     font-size: 15px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+}
+.producto-eliminar {
+    cursor: pointer;
+    color: red;
+    margin-left: 50px;
+}
+
+/*Tablet*/
+@media (max-width: 768px) {
+    .formulario-compra {
+        padding-left: 20px;   
+        padding-right: 10px; 
+        margin-left: 0;      
+        gap: 8px;
+    }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+    .formulario-compra {
+        padding-left: 20px;   
+        padding-right: 5px; 
+        margin-left: 0;      
+        gap: 6px;
+    }
 }

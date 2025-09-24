@@ -1,3 +1,5 @@
+import { descarga } from "../../control/descarga.js";
+
 export function Header() {
     let header = document.createElement('header');
     header.className = "header";
@@ -7,10 +9,15 @@ export function Header() {
     div1.innerText = "Lista de compras";   
     div1.className = "titulo";
 
-    // emoji
+    // emoji (botón de descarga)
     let div = document.createElement('div');
     div.innerText = "⬇️";   
     div.className = "circulo";
+    div.style.cursor = "pointer";
+
+    div.addEventListener("click", () => {
+        descarga("miContenedor"); 
+    });
 
     header.appendChild(div1);
     header.appendChild(div);

@@ -33,16 +33,42 @@ export function seccionFormulario() {
         let precio = parseFloat(inputPrecio.value);
 
         if (nombre !== "" && !isNaN(precio) && precio > 0) {    
+
+            // contenedor del producto
             let item = document.createElement('li');
             item.className = "item-compra";
-            item.innerText = `${nombre} - Q. ${precio.toFixed(2)}`;
+
+            // nombre y precio
+            let texto = document.createElement('span');
+            texto.innerText = `${nombre} - Q. ${precio.toFixed(2)}`;
+
+            // botón eliminar
+            let eliminar = document.createElement('span');
+            eliminar.className = "producto-eliminar";
+            eliminar.textContent = "❌";
+            eliminar.style.cursor = "pointer";
+
+            eliminar.addEventListener('click', () => {
+                item.remove(); // elimina del DOM
+
+                let productos = obtenerLista();
+                const i = productos.findIndex(p => p.nombre === nombre && p.precio === precio);
+                if (i > -1) {
+                    productos.splice(i, 1);
+                    guardarLista(productos);
+                }
+            });
+
+            // agregamos todo al item
+            item.appendChild(texto);
+            item.appendChild(eliminar);
+
             lista.appendChild(item);
 
+            // guardamos en localStorage
             let carritoLocalStorage = obtenerLista() || [];
             carritoLocalStorage.push({ nombre, precio });
             guardarLista(carritoLocalStorage);
-
-            console.log("Producto agregado al Local Storage:", { nombre, precio });
 
             inputProducto.value = "";
             inputPrecio.value = "";

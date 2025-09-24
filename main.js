@@ -5,6 +5,7 @@ import { obtenerLista, guardarLista } from "./control/miLocalStorage.js";
 
 function seccion() {
     let seccion = document.createElement('section');
+    seccion.className = 'todo';
 
     let listaProductos = obtenerLista();
 
@@ -23,4 +24,6 @@ function seccion() {
     return seccion;
 }
 
-document.body.appendChild(seccion());
+// 🔹 Aquí apuntamos al root
+const root = document.querySelector('#root');
+root.appendChild(seccion());
