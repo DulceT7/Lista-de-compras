@@ -7,23 +7,16 @@ function seccion() {
     let seccion = document.createElement('section');
     seccion.className = 'todo';
 
-    let listaProductos = obtenerLista();
-
-    // Inicializar localStorage si está vacío
-    if (listaProductos.length === 0) {
-        listaProductos = [];
-        guardarLista(listaProductos);
-    }
-
-    console.log(listaProductos);
-
+    const sec1 = seccion1(); 
     seccion.appendChild(Header());
-    seccion.appendChild(seccion1());
-    seccion.appendChild(seccionFormulario());
+    seccion.appendChild(sec1);
+
+    const formulario = seccionFormulario(sec1); 
+    seccion.appendChild(formulario);
 
     return seccion;
 }
 
-// 🔹 Aquí apuntamos al root
+// 🔹 Apuntamos al root
 const root = document.querySelector('#root');
 root.appendChild(seccion());
